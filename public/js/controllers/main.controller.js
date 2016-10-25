@@ -8,12 +8,15 @@ MainController.$inject = ['$scope', 'ToDoService']; //what tools does the MainCo
 function MainController ($scope, ToDoService){ //$scope is our bridge to the DOM
   $scope.todos = ToDoService.get(); //gimme this data and put it in the todos variable
   $scope.createTodo = createTodo;
+  $scope.deleteTodo = deleteTodo;
 
   function createTodo(newTodo){
     ToDoService.create(newTodo);
     $scope.newTodo = '';
   }
-
+  function deleteTodo(index){
+    ToDoService.delete(index);
+    
+  }
 }
-
 }());
