@@ -7,10 +7,10 @@
   function ToDoService() {
 
     var data = [
-      'take a nap',
-      'take another nap',
-      'get some milk',
-      'win the lotto'
+      {desc: 'take a nap'}, //is a todo object instead of a todo string
+      {desc: 'take another nap'},
+      {desc: 'get some milk'},
+      {desc: 'win the lotto'}
     ];
 
     return {
@@ -23,11 +23,11 @@
     function get(){
       return data;
     }
-    function create(description){
+    function create( {desc: description} ) {
       data.push(description); //push is an array method
     }
     function update(index,newDescription){
-      data.splice(index, 1, newDescription);
+      data.splice(index, 1, {desc: newDescription});
     }
     function remove(index){
       data.splice(index,1);
